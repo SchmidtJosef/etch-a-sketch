@@ -25,8 +25,14 @@ function createColumns(dim) {
 
 createGrid();
 
+let color = 4090;
+
 mainContainer.addEventListener('mouseover', (e) => {
-    e.target.style['background-color'] = 'rebeccapurple';
+    e.target.style['background-color'] = `#${color.toString(16)}`;
+    if (color>400) {
+        color-=20;
+    } else {color = 4090};
+    
 })
 
 resetBtn.addEventListener('click', () => {
