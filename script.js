@@ -1,4 +1,5 @@
 const mainContainer = document.querySelector('.main-container');
+const resetBtn = document.querySelector('#reset-btn');
 let rows = document.getElementsByClassName("grid-row");
 
 function createGrid(dim=16) {
@@ -25,5 +26,16 @@ function createColumns(dim) {
 createGrid();
 
 mainContainer.addEventListener('mouseover', (e) => {
-    e.target.style['background-color'] = 'blanchedalmond';
+    e.target.style['background-color'] = 'rebeccapurple';
+})
+
+resetBtn.addEventListener('click', () => {
+    mainContainer.replaceChildren();
+    do{
+        dim = prompt('Input the dimension of the grid (max=100):');
+    } while(!Number.isInteger(Number(dim)))    
+    if(dim>100) {
+        dim = 100;
+    }
+    createGrid(dim);
 })
